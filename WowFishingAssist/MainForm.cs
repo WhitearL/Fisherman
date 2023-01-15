@@ -106,52 +106,6 @@ namespace WowFishingAssist
             castCount++;
         }
 
-        private async Task sendUseLure()
-        {
-            //    PauseFishing();
-            SetForegroundWindow(hWnd);    // bring Wow into the forground.
-            await Task.Delay(1000);
-            sendAKey(0xBF);  // - / 
-            await Task.Delay(100);
-            sendAChar(0x55);  // -u
-            sendAChar(0x53);  // -s   
-            sendAChar(0x45);  // -e 
-            sendAChar(0x20);  // - 
-
-            sendAChar(0x53);  // -s 
-            sendAChar(0x43);  // -c
-            sendAChar(0x41);  // -a
-            sendAChar(0x52);  // -r 
-            sendAChar(0x4C);  // -l
-            sendAChar(0x45);  // -e
-            sendAChar(0x54);  // -T
-            sendAChar(0x20);  // - 
-            sendAChar(0x48);  // -h
-            sendAChar(0x45);  // -e
-            sendAChar(0x52);  // -r
-            sendAChar(0x52);  // -r
-            sendAChar(0x49);  // -i
-            sendAChar(0x4E);  // -n
-            sendAChar(0x47);  // -g
-            sendAChar(0x20);  // - 
-            sendAChar(0x4C);  // -l
-            sendAChar(0x55);  // -u
-            sendAChar(0x52);  // -r
-            sendAChar(0x45);  // -e
-
-
-            sendAKey(0x0D);//Enter
-            await Task.Delay(5000);
-
-            //  Point pt = new Point(998, 650);  // todo: this position needs to be relative.  its the position on a 1080 screen.   needs to be relative to what ever the rez is set to.
-            //   Cursor.Position = pt;
-            //  DoMouseClick(pt);
-            await Task.Delay(5000);
-            // await sendFishingCastCommand();
-            //    ResumeFishing();
-
-        }
-
         private async Task sendUseBait()
         {
 
@@ -159,8 +113,8 @@ namespace WowFishingAssist
             // Binding to the old fishing key of = the bait you want to use needs to be placed in that slot.
             SetForegroundWindow(hWnd);    // bring Wow into the forground.
             await Task.Delay(1000);
-            sendAKey(0x5D);
-            await Task.Delay(1000);
+            sendAKey(0x47);
+            await Task.Delay(1000);         
 
         }
 
@@ -459,7 +413,6 @@ namespace WowFishingAssist
             AForge.Vision.Motion.MotionDetector motionDetector = null;
             motionDetector = GetDefaultMotionDetector();
             globalTimer.Elapsed += GlobalTimer_Elapsed;
-            lureTimer.Elapsed += LureTimer_Elapsed;
             baitTimer.Elapsed += BaitTimer_Elapsed;
             screenUpdateTimer.Tick += ScreenUpdateTimer_Tick;
 
@@ -517,17 +470,11 @@ namespace WowFishingAssist
             baitTimer.Stop();
         }
 
-        private void LureTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            useLure = true;
-            lureTimer.Stop();
-        }
-
         private void ScreenUpdateTimer_Tick(object sender, EventArgs e)
         {
             lblCastCount.Text = castCount.ToString();
             lblCurrentCastsBeforeSell.Text = numCastsBeforeSellJunk.ToString();
-            lblLureStatus.Text = useLure ? "Lure active" : "Lure inactive";
+            lblLureStatus.Text = useLure ? "Bait active" : "Bait inactive";
         }
 
         private void numMinBobClickTime_ValueChanged(object sender, EventArgs e)

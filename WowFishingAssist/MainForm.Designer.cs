@@ -197,9 +197,9 @@
             this.lblLureStatus.AutoSize = true;
             this.lblLureStatus.Location = new System.Drawing.Point(347, 323);
             this.lblLureStatus.Name = "lblLureStatus";
-            this.lblLureStatus.Size = new System.Drawing.Size(69, 13);
+            this.lblLureStatus.Size = new System.Drawing.Size(66, 13);
             this.lblLureStatus.TabIndex = 26;
-            this.lblLureStatus.Text = "Lure Inactive";
+            this.lblLureStatus.Text = "Bait Inactive";
             this.lblLureStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // titleLureStatus
@@ -207,9 +207,9 @@
             this.titleLureStatus.AutoSize = true;
             this.titleLureStatus.Location = new System.Drawing.Point(282, 323);
             this.titleLureStatus.Name = "titleLureStatus";
-            this.titleLureStatus.Size = new System.Drawing.Size(62, 13);
+            this.titleLureStatus.Size = new System.Drawing.Size(59, 13);
             this.titleLureStatus.TabIndex = 27;
-            this.titleLureStatus.Text = "Lure status:";
+            this.titleLureStatus.Text = "Bait status:";
             this.titleLureStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbUseBait
